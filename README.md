@@ -416,49 +416,8 @@ chmod +x build.sh
 
 5. Verify all labs are sending data independently to Firebase
 
-### Verification Checklist
-
-**Firmware Verification:**
-- [ ] Serial Monitor shows "Data sent successfully!" every 5 seconds
-- [ ] WiFi connection established (check for WiFi connected message)
-- [ ] Firebase path correct (/devices/sensor_node_XX/latest)
-- [ ] Sensor readings appear reasonable (temp: 15-35°C, humidity: 20-80%)
-
-**Firebase Verification:**
-- [ ] Data appears in Firebase Console → Realtime Database
-- [ ] Separate paths for each device (sensor_node_01, 02, 03)
-- [ ] Timestamp updates with each reading
-- [ ] History data accumulates over time
-
-**Frontend Verification:**
-- [ ] All 3 labs appear on "All Laboratories" page
-- [ ] Live data updates automatically
-- [ ] Alert badges appear when thresholds exceeded
-- [ ] Click on lab card navigates to detail page
-- [ ] Alert notification widget shows correct count
-- [ ] Online/offline status displays correctly
-
-**Dashboard Verification:**
-- [ ] Lab selector shows all 3 labs
-- [ ] Online status indicator turns green when simulator running
-- [ ] Offline status appears when simulator stopped
-- [ ] Historical charts populate with data
-- [ ] AC control buttons function correctly
-- [ ] Auto-refresh updates data every 5 seconds
-
-**Backend Verification:**
-- [ ] Server starts without errors
-- [ ] Connects to Firebase successfully
-- [ ] AC automation logic triggers on motion events
-- [ ] Logs appear in console for automation actions
 
 ### Status Indicators
-
-**Frontend Application:**
-- Green border (2px): Lab online and normal
-- Orange border (3px): Warning condition detected
-- Red border (3px): Critical condition detected
-- Gray border (2px): Lab offline
 
 **Dashboard:**
 - ONLINE: Sensor active, real-time values displayed
@@ -474,61 +433,8 @@ chmod +x build.sh
 3. Confirm WiFi connection in Serial Monitor
 4. Rebuild firmware with correct configuration
 
-**FSecurity and Credentials Management
 
-### Protected Files
 
-The following files contain sensitive credentials and are excluded from Git via `.gitignore`:
-
-**Firmware Configuration:**
-- `configs/lab1_config.h` - Contains WiFi credentials, Firebase API keys, database secrets
-- `configs/lab2_config.h` - Lab 2 configuration
-- `configs/lab3_config.h` - Lab 3 configuration
-- `firmware/include/config.h` - Auto-generated symlink during build
-
-**Backend Credentials:**
-- `backend/firebase-service-account.json` - Firebase Admin SDK private key
-- `backend/.env` - Environment variables including database URL
-- `backend/cred.txt` - Additional credential storage
-
-**Dashboard Credentials:**
-- `dashboard/firebase-service-account.json` - Firebase Admin SDK private key
-- `dashboard/.env` - Optional Gemini API key for AI features
-- `dashboard/dashboard.py` - Excluded to prevent accidental credential exposure
-
-**Frontend Credentials:**
-- `frontend/lib/firebase_options.dart` - Auto-generated Firebase configuration
-- `frontend/android/app/google-services.json` - Android Firebase configuration
-
-### Template Files
-
-These files are safe to commit and should be used as templates:
-
-- `configs/config.h.example` - Firmware configuration template
-- `firebase-service-account.json.example` - Service account structure example
-- `backend/.env.example` - Backend environment variables template
-- `dashboard/.env.example` - Dashboard environment variables template
-
-### Security Best Practices
-
-1. **Never commit credential files**: Always use `.gitignore` to exclude sensitive files
-2. **Use environment variables**: Store secrets in `.env` files, not in code
-3. **Firebase Security Rules**: Configure proper read/write rules in Firebase Console
-4. **Regular key rotation**: Periodically regenerate API keys and service account keys
-5. **Access control**: Use Firebase Authentication to control who can access data
-6. **HTTPS only**: Ensure all Firebase communication uses HTTPS
-7. **Client-side API keys**: Note that Firebase Web API keys are safe for client use as security is enforced through Firebase Security Rules
-
-### Credential Checklist
-
-Before deploying, ensure:
-- [ ] All template files copied and renamed
-- [ ] Firebase credentials updated in all config files
-- [ ] Service account JSON files placed in correct directories
-- [ ] `.gitignore` properly excludes all credential files
-- [ ] Environment variables set for production deployment
-- [ ] Firebase Security Rules configured appropriately
-- [ ] Authentication enabled for production us
 ### 4️ Start Backend (Optional)
 
 ```powershell
@@ -539,15 +445,6 @@ npm start
 
 ---
 
-## Features
-
-**Single Codebase** - One firmware for all 3 labs  
-**Config-Based Labs** - Switch labs by changing config file  
-**Automated Builds** - Build scripts for Windows/Linux  
-**Shared Simulations** - All labs use same firmware build  
-**Multi-Lab Dashboard** - Monitor all 3 labs in one view  
-**Smart Automation** - 15s motion + 15s inactivity AC control  
-**SProduction Deployment
 
 ### Firmware Deployment to Physical Hardware
 
