@@ -159,7 +159,7 @@ cd SafeLabs
    - Project ID
    - Realtime Database URL (e.g., `https://your-project-default-rtdb.firebaseio.com/`)
 
-###Running the System
+### Running the System
 
 ### Option 1: Complete System (All Components)
 
@@ -425,15 +425,6 @@ chmod +x build.sh
 - WARNING: Values outside normal range but not critical
 - CRITICAL: Values exceed safety thresholds
 
-### Troubleshooting
-
-**No data in Firebase:**
-1. Verify Firebase credentials in config files
-2. Check Firebase Realtime Database rules allow write access
-3. Confirm WiFi connection in Serial Monitor
-4. Rebuild firmware with correct configuration
-
-
 
 ### 4️ Start Backend (Optional)
 
@@ -664,29 +655,6 @@ Each lab writes to its own Firebase path:
 4. Build: `.\build.bat lab4`
 
 No changes to firmware needed!
-
----
-
-## Testing
-
-**Run all 3 labs simultaneously:**
-
-1. Build firmware: `.\build.bat all`
-2. Open 3 VS Code windows
-3. In each window:
-   - Open `simulations/lab1/diagram.json` (or lab2, lab3)
-   - Press F1 → "Wokwi: Start Simulator"
-4. All 3 will push to Firebase independently!
-
-**Dashboard Status Indicators:**
-- 🟢 **ONLINE**: Sensor active, real-time values displayed
-- ⚫ **OFFLINE**: Simulator stopped, empty metrics shown (-- °C, -- %, -- ppm)
-- Offline detection triggers after 30 seconds of no updates
-- Auto-refresh continues even when offline (every 5s)
-
-**Serial Monitor Verification:**
-- Look for: `✓ Data sent successfully!` every 5 seconds
-- If offline: Check WiFi connection, Firebase rules, or rebuild firmware
 
 ---
 
