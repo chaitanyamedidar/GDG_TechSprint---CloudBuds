@@ -56,7 +56,7 @@ SafeLabs is a comprehensive IoT-based laboratory monitoring and safety system de
 
 ---
 
-## Repository Structure
+## 📁Repository Structure
 
 ```
 /
@@ -807,7 +807,7 @@ No changes to firmware needed!
 - `backend/.env.example` - Backend environment template
 
 
-## Firebase Structure
+## 🔥Firebase Structure
 
 ```
 devices/
@@ -840,7 +840,7 @@ MIT License - See [LICENSE](LICENSE)
 
 ---
 
-## Contributing
+## 👥 Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md)
 
